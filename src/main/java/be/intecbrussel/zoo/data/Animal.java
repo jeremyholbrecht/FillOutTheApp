@@ -1,9 +1,18 @@
 package be.intecbrussel.zoo.data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Animal {
 
+    @Id
+    @GeneratedValue
     private long id;
     private String animalName;
+    @ManyToOne
     private Country country;
 
     public Animal() {

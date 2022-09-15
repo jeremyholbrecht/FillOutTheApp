@@ -22,18 +22,16 @@
 
 
 
+    <div  th:each="country:${countries}">
+        <ul>
+            <li><button th:text="${countryName}"></button></li>
+        </ul>
+    </div>
 
-
-
-    <ul>
-        <a>country 1</a>
-        <a>country 2</a>
-        <a>country 3</a>
-    </ul>
     
        <form method= "post" th:action = @{/addCountry}>
 
-        <input type="text" name="countryName" th:text = ${country.countryName}> <br>
+        <input type="text" name="countryName" th:text = ${countryName}> <br>
           
 
         <input type="submit" value="create">
