@@ -14,10 +14,6 @@
 
     <pre id="quote">"Animals from <td th:text = "${countryName}">" </pre>
 
-    <a th:href="@{/countries}"> BACK </a> <br> <br> <br>
-
-
-
 
     <tr th:each = "animal:${animals}">
         <td th:text = "${animal.animalName}"> animals</td>
@@ -32,7 +28,8 @@
 
         <input type="text" name="animalName" th:text = "*{animalName}"> <br>
 
-        <input type="submit" value="create">
+        <input type="submit" value="Create">
+        <button type="submit"><a th:href="@{/countries}">Back</a>
 
     </form>
 </body>

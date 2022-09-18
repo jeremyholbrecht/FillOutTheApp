@@ -1,5 +1,6 @@
-package be.intecbrussel.zoo.controllers.interfaces;
+package be.intecbrussel.zoo.controllers.implementations;
 
+import be.intecbrussel.zoo.controllers.interfaces.AnimalController;
 import be.intecbrussel.zoo.data.Animal;
 import be.intecbrussel.zoo.data.Country;
 import be.intecbrussel.zoo.repositories.AnimalRepository;
@@ -11,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class AnimalControllerImpl implements AnimalController{
+public class AnimalControllerImpl implements AnimalController {
 
     private AnimalService animalService;
 
@@ -48,16 +49,11 @@ public class AnimalControllerImpl implements AnimalController{
     }
 
     @Override
-    public String deleteAnimal(long animalId) {
-        return null;
-    }
-
-    @Override
     @GetMapping("/animals/{countryName}/{id}")
-    public String deleteAnimal(@PathVariable Long id) {
+    public String deleteAnimal(@PathVariable long id) {
+       animalService.deleteAnimal(id);
 
-        animalService.deleteAnimal(id);
-
-        return "animals";
+        return "redirect:/animals/{countryName}";
     }
+
 }
