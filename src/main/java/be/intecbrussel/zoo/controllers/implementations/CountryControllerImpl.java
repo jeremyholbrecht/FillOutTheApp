@@ -33,6 +33,6 @@ public class CountryControllerImpl implements CountryController {
     @PostMapping("/addCountry")
     public String createCountry(Country country) {
         countryService.createCountry(country);
-        return "";
+        return "redirect:/countries";
     }
 }

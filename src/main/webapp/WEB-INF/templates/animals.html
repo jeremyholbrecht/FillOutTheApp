@@ -12,41 +12,29 @@
 <body>
 
 
+    <pre id="quote">"Animals from <td th:text = "${countryName}">" </pre>
 
-
-<div class="main">
-
-
-
-    <pre id="quote">"Animals from [[${country.countryName}]]" </pre>
-    <a th:href="@{/countries}"> BACK </a>
+    <a th:href="@{/countries}"> BACK </a> <br> <br> <br>
 
 
 
 
+    <tr th:each = "animal:${animals}">
+        <td th:text = "${animal.animalName}"> animals</td>
+        <a th:href = "@{/animals/{countryName}/{id}(id=${animal.id})}" >delete</a>
+        <br>
+    </tr>
 
 
-    <ul>
-        <a>animal 1 <button>Delete</button></a>
-        <a>animal 2 <button>Delete</button></a>
-        <a>animal 3 <button>Delete</button></a>
-    </ul>
 
-    <form method= "post" th:action = @{/addAnimal/{c}(c=${animal.country.countryName})}>
 
-        <input type="text" name="animalName" th:text = ${animal.animalName}>
+    <form method= "post" th:action = "@{/animals/{countryName}(countryName=${countryName})}">
+
+        <input type="text" name="animalName" th:text = "*{animalName}"> <br>
 
         <input type="submit" value="create">
 
-
     </form>
-
-
-
-
-
-
-</div>
 </body>
 
 </html>
