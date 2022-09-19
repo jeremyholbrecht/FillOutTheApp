@@ -51,9 +51,10 @@ public class AnimalControllerImpl implements AnimalController {
     @Override
     @GetMapping("/animals/{countryName}/{id}")
     public String deleteAnimal(@PathVariable long id) {
-       animalService.deleteAnimal(id);
+        Animal animal = animalService.getAnimalByID(id);
+        animalService.deleteAnimal(id);
 
-        return "redirect:/animals/{countryName}";
+        return "redirect:/animals/" + animal.getCountry().getCountryName();
     }
 
 }
